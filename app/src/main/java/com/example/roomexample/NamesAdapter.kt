@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class NamesAdapter(private val names: ArrayList<String>): RecyclerView.Adapter<NamesAdapter.NamesViewHolder>() {
+class NamesAdapter(private val names: List<Name>): RecyclerView.Adapter<NamesAdapter.NamesViewHolder>() {
     inner class NamesViewHolder(private val view: View): RecyclerView.ViewHolder(view){
         fun setData(name: String){
             val nameTV = view.findViewById<TextView>(R.id.name_tv)
@@ -22,6 +22,6 @@ class NamesAdapter(private val names: ArrayList<String>): RecyclerView.Adapter<N
     override fun getItemCount(): Int = names.count()
 
     override fun onBindViewHolder(holder: NamesViewHolder, position: Int) {
-        holder.setData(names[position])
+        holder.setData(names[position].name)
     }
 }
